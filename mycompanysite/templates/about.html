@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Future Science Hub</title>
+
+  <!-- Bootstrap + AOS + FontAwesome + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #333;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1, h4, h5 {
+      background: linear-gradient(90deg, #ff0080, #7928ca);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-ring {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glow-ring::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      border-radius: 50%;
+      background: conic-gradient(#ff0080, #7928ca, #00ffe7, #ff0080);
+      animation: rotateBorder 4s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotateBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-img {
+      position: relative;
+      width: 180px;
+      border-radius: 50%;
+      z-index: 1;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .glass-card, .highlight-box {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation: popUp 0.8s ease forwards;
+      transition: 0.4s ease;
+    }
+
+    .glass-card:hover,
+    .highlight-box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+    }
+
+    @keyframes popUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    a {
+      color: #ff0080;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #2a00ff;
+      text-decoration: underline;
+    }
+
+    .social-icons a {
+      font-size: 22px;
+      margin: 0 10px;
+      color: #fff;
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      padding: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 15px #7928ca;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 25px #ff0080;
+    }
+
+    footer {
+      background: #0f0f0f;
+      color: #ccc;
+      padding: 20px;
+      margin-top: 50px;
+      font-weight: 400;
+      text-align: center;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .profile-img {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+    <div class="text-center mb-5" data-aos="zoom-in">
+      <h1 class="display-4 fw-bold">🚀 Future Science Hub</h1>
+      <p class="text-muted fs-5">Where Innovation Meets Practical Learning</p>
+    </div>
+
+    <div class="row align-items-center g-4 mb-5">
+      <div class="col-md-4 text-center" data-aos="fade-right">
+        <div class="glow-ring">
+          <img src="{{ url_for('static', filename='images/harpal.jpg') }}" alt="Harpal Makwana" class="profile-img">
+        </div>
+        <h4 class="mt-3 fw-bold">Harpal Makwana</h4>
+        <p class="text-muted">Founder & Developer</p>
+      </div>
+      <div class="col-md-8" data-aos="fade-left">
+        <div class="glass-card">
+          <p><strong>Future Science Hub</strong> was founded by <strong>Harpal Makwana</strong> to bring real innovation into classrooms and homes. We create amazing projects using Arduino, Raspberry Pi, IoT, and modern technologies.</p>
+          <p>From workshops to real-world solutions, we help students and makers explore futuristic learning through DIY projects, robotics, and digital tools. Follow us and let's build the future together!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center g-4" data-aos="fade-up">
+      <div class="col-md-4">
+        <div class="highlight-box h-100">
+          <h5>📦 Services</h5>
+          <ul class="list-unstyled mt-3">
+            <li>✅ Arduino & IoT Projects</li>
+            <li>✅ Embedded Systems</li>
+            <li>✅ 3D Printing</li>
+            <li>✅ Workshops & Training</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="highlight-box h-100">
+          <h5>🎯 Vision</h5>
+          <p class="mt-3">To become India’s most inspiring and practical innovation hub for students and creators.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="highlight-box h-100">
+          <h5>🔗 Connect</h5>
+          <p class="mt-3">
+            Instagram: <a href="https://instagram.com/future_science_hub" target="_blank">@future_science_hub</a><br/>
+            YouTube: <a href="https://youtube.com/@FutureScienceHub" target="_blank">Future Science Hub</a>
+          </p>
+          <div class="social-icons mt-3">
+            <a href="https://instagram.com/future_science_hub" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@FutureScienceHub" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Future Science Hub | Designed & Developed by Harpal Makwana
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }} | Future Science Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background: #f8f9fa; font-family: 'Poppins', sans-serif; }
+    .product-card { border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+    .product-card:hover { transform: scale(1.03); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .product-img { height: 180px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">{{ title }}</h2>
+      <p class="text-muted">Explore category-specific projects</p>
+    </div>
+
+    <div class="row g-4">
+      {% for product in products %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="bg-white product-card">
+          <img src="{{ url_for('static', filename='images/' ~ product.image) }}" class="w-100 product-img" alt="{{ product.title }}">
+          <div class="p-3">
+            <h5 class="fw-semibold">{{ product.title }}</h5>
+            <p class="text-muted small">{{ product.desc }}</p>
+            <p class="fw-bold text-success">{{ product.mrp }}</p>
+            <a href="/projects" class="btn btn-outline-primary btn-sm w-100">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

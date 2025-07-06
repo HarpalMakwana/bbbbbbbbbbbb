@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Future Science Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap + Tilt + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #000428, #004e92);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    .contact-section {
+      padding: 80px 20px;
+    }
+
+    .contact-title {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #00eaff;
+      margin-bottom: 40px;
+      text-shadow: 0 0 15px #00eaffaa;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      transition: 0.4s;
+    }
+
+    .form-control {
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #00eaff;
+      border-radius: 0;
+      color: white;
+      padding-left: 0;
+      transition: 0.3s;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-bottom: 2px solid #ffea00;
+      background: transparent;
+    }
+
+    .form-label {
+      color: #ccc;
+    }
+
+    .btn-send {
+      background-color: #00eaff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      padding: 10px 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #00eaff88;
+    }
+
+    .btn-send:hover {
+      background-color: #ff0;
+      color: #000;
+      box-shadow: 0 0 30px #ff0;
+    }
+
+    @media (max-width: 768px) {
+      .contact-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="contact-title">📬 Get in Touch</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="contact-card" data-tilt data-tilt-scale="1.03">
+            <form method="POST" action="/contact">
+              <div class="mb-4">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Harpal Makwana" required>
+              </div>
+              <div class="mb-4">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="mb-4">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-send">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+              </div>
+            </form>
+          </div>
+
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="alert alert-info text-center mt-4">
+                {{ messages[0] }}
+              </div>
+            {% endif %}
+          {% endwith %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
